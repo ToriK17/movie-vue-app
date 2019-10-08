@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-     <h1>All Actors</h1>
+    <h1>All Actors</h1>
     <div v-for="actor in actors">
       <h3>{{ actor.first_name }}</h3>
       <h3>{{ actor.last_name }}</h3>
@@ -18,7 +18,7 @@
           <button v-on:click="destroyActor(actor)">Destroy Actor</button>
         </div>
       </div>    
-  </div>      
+    </div>      
       
     
   </div>
