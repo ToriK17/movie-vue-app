@@ -1,8 +1,11 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Home from './views/Home.vue';
+import MoviesNew from './views/Movies/New.vue';
+import MoviesShow from './views/Movies/Show.vue';
+import MoviesIndex from './views/Movies/Index.vue';
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   mode: 'history',
@@ -12,14 +15,21 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    }, 
+    {
+      path: '/movies/new',
+      name: 'movies-new',
+      component: MoviesNew
+    }, 
+    {
+      path: '/movies', 
+      name: 'movies-index', 
+      component: MoviesIndex
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      path: '/movies/:id', 
+      name: 'movies-show', 
+      component: MoviesShow
     }
   ]
-})
+});
