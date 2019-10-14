@@ -3,6 +3,7 @@
     <h2>{{ movie.title }}</h2>
     <p>Year: {{ movie.year }}</p>
     <p>Plot: {{ movie.plot }}</p>
+    <router-link v-bind:to= "`/movies/${movie.id}/edit`">Edit Movie</router-link> | 
     <router-link to="/movies">Back to all movies</router-link>
   </div>
 </template>
