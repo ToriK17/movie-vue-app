@@ -5,6 +5,25 @@
       <h3>{{ actor.first_name }}</h3>
       <h3>{{ actor.last_name }}</h3>
       <button v-on:click="showActor(actor)">Show more Info</button>
+
+      <div v-if="movie === currentMovie">
+        <h3>{{ movie.title}}</h3>
+        <h3>{{ movie.year}}</h3>
+        
+    <div>
+      <input type="text" v-model="newMovieTitle" />
+      <input type="text" v-model="newMovieYear" />
+      <button v-on:click="createMovie()">Create Movie</button>
+    </div>
+      </div>
+
+      <button v-on:click="showMovie(movie)">Show more</button>
+      <div v-if="currentMovie === movie">
+        <p>Title: {{ movie.height }}</p>       
+        <p>Year: {{ movie.year }}</p>
+      </div>
+
+
       <div v-if="actor === currentActor">
         <h3>{{ actor.known_for}}</h3>
         <h3>{{ actor.gender}}</h3>
@@ -34,7 +53,10 @@ export default {
   data: function() {
     return {
       actors: [], 
-      currentActor: {}
+      currentActor: {}, 
+      movies: [], 
+      newMovieTitle: "", 
+      newMovieYear: ""
     };
   },
   created: function() {
@@ -43,6 +65,17 @@ export default {
     });
   },
   methods: {
+    createMovie: function() {
+      var params = {
+        title: this.newMovieTitle,
+        year: this.newMovieYear,
+      };
+      axios.post("/api/movies", params).then(response => {
+        this.movies.push(response.data);
+        this.newMovieTitle = "";
+        this.newMovieYear = "";
+      });
+    },
     showActor: function(actor) {
       if (this.currentActor === actor) {
         this.currentActor = {};
