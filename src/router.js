@@ -5,6 +5,9 @@ import MoviesNew from './views/Movies/New.vue';
 import MoviesShow from './views/Movies/Show.vue';
 import MoviesIndex from './views/Movies/Index.vue';
 import MoviesEdit from './views/Movies/Edit.vue';
+import Signup from "./views/Signup.vue";
+import Login from "./views/Login.vue";
+import Logout from "./views/Logout.vue";
 
 Vue.use(Router);
 
@@ -36,6 +39,19 @@ export default new Router({
       path: '/movies/:id/edit', 
       name: 'movies-edit', 
       component: MoviesEdit
-    }
+    }, 
+    {
+      path: '/signup',
+      name: 'signup',
+      component: Signup
+    },
+    {
+      path: '/login', 
+      name: 'login', 
+      component: Login 
+    },
+    { path: "/logout",
+      name: "logout",
+      component: Logout }
   ]
 });

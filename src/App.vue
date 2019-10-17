@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <router-link to="/signup">Signup</router-link>
+    <router-link to="/login">Login</router-link>
+    <router-link to="/logout">Logout</router-link> 
     <div class="cbp-af-header">
       <div class=" cbp-af-inner">
         <div class="container">

@@ -23,6 +23,15 @@
         <p>Year: {{ movie.year }}</p>
       </div>
 
+      <div>
+        Title:
+        <input type="text" v-model="movie.title" />
+        Year:  
+        <input type="text" v-model="movie.year" />
+          
+        <button v-on:click="updateMovie(movie)">Update Movie</button>
+        </div>
+
 
       <div v-if="actor === currentActor">
         <h3>{{ actor.known_for}}</h3>
